@@ -2,13 +2,14 @@
 
 body {
     position: relative;
-
-    @media (max-width: 649px) {
+/*
+    @media (max-width: 650px) {
         display: grid;
         grid-template-areas: "aside" "header_y_container";
     }
+   */
+   
 
-    
     /*mi modificacion________________________*/
     .nav-toggle{
         color: white;
@@ -22,17 +23,46 @@ body {
     }
 
     @media (max-width: 600px) {
+        aside{
+            display: none; 
+            min-width: 200px;     
+                    
+            /*Deplazamiento hacia la derecha*/
+            .logo_y_cliente{ 
+                width: 100%;
+                
+                height: calc(100%-50%);/*para calcular el alto automáticamente*/  
+           
+                transition: right 0.3s;
+
+                img.logo {
+                    width: 100%;
+                    padding: 12px;
+                    padding-bottom: 0;
+                }
+             }
+        }
+
         .nav-toggle{
             display: block;
-         }
+        }
  
-         .nav-toggle:focus(:focus-visible){
+        .nav-toggle:focus(:focus-visible){
              outline: none;
-         }
+        }
+
+                         
+        .aside_visible{
+             display:block;
+             min-width: 200px; 
+               
+        }
+        ._visible{
+            width: auto;
+        } 
     }
 
 /*_____________________________________________________*/
-
 
     aside {
             width: 18%;
@@ -45,13 +75,16 @@ body {
                 min-width: 25%;
             }
 
-            @media (max-width: 650px) {
+           
+           @media (max-width: 650px) {
                 grid-area: aside;
                 width: 80vw;
                 z-index: 1;
                 /* display: fixed; */
             }
+           
 
+           
             img.logo {
                 width: 90%;
                 padding: 12px;
@@ -82,7 +115,14 @@ body {
                     font-weight: 200;
                     overflow: hidden;
                 }
+
+                
             }
+
+
+            
+
+
             nav {
                 background-color: var(--azul_oscuro);
                 padding: 20px;
@@ -106,36 +146,36 @@ body {
                 @media (max-width: 650px) {
                     height: calc(100% - 32%);
                 }
-
-                /*mi modificacion_______________________________________________________*/
+/*mi modificacion_______________________________________________________*/
                 @media (max-width: 600px) {
                     
                     background: none;
+
                      .nav-menu{
                         flex-direction: column;
                         align-items: center;
                         margin-right: 20px;
                         background-color: var(--azul_oscuro);
+                        border-top-right-radius: 60px;
                         position: fixed;
-                        
-                        width: 100%;
-                        padding: 20px 0;
+                       
+                        padding: 10px 0;
                         height: calc(100%-31%);/*para calcular el alto automáticamente*/
                         overflow-y: auto;/*agrega u scrool cuando sea necesario*/
                         /*Deplazamiento hacia la derecha*/
-                        top:31%;
+                        top:40%;
                         right: 100%;
                         transition: right 0.3s;
                      }
                      .nav-menu_visible{
                         display:block;
-                        right:0;
-                        margin-right: 0;   
-                     }   
+                        right:65%;
+                        margin-right: 5px;   
+                     } 
+
                     
                 }
 /*______________________________________________________________*/
-
                 ul {
                     display: flex;
                     flex-direction: column;
@@ -177,7 +217,7 @@ body {
                         }
                         &.cerrar {
                             display: flex;
-                            margin: 60px auto auto 5px;
+                            margin: 60px 8px auto 8px;
                             align-items: center;
                             border-radius: 7px;
                             padding: 6px 10px;
@@ -204,5 +244,10 @@ body {
                     }
                 }
             }
+
+
         }
+
+       
+        
     }
