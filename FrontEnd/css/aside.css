@@ -8,6 +8,31 @@ body {
         grid-template-areas: "aside" "header_y_container";
     }
 
+    
+    /*mi modificacion________________________*/
+    .nav-toggle{
+        color: white;
+        background: none;
+        border: none;
+        font-size: 30px;
+        padding: 0 20px;
+        line-height: 60px;
+        cursor: pointer;
+        display:none;/*para que no sea vea en el dispositivo*/
+    }
+
+    @media (max-width: 600px) {
+        .nav-toggle{
+            display: block;
+         }
+ 
+         .nav-toggle:focus(:focus-visible){
+             outline: none;
+         }
+    }
+
+/*_____________________________________________________*/
+
 
     aside {
             width: 18%;
@@ -81,6 +106,35 @@ body {
                 @media (max-width: 650px) {
                     height: calc(100% - 32%);
                 }
+
+                /*mi modificacion_______________________________________________________*/
+                @media (max-width: 600px) {
+                    
+                    background: none;
+                     .nav-menu{
+                        flex-direction: column;
+                        align-items: center;
+                        margin-right: 20px;
+                        background-color: var(--azul_oscuro);
+                        position: fixed;
+                        
+                        width: 100%;
+                        padding: 20px 0;
+                        height: calc(100%-31%);/*para calcular el alto automáticamente*/
+                        overflow-y: auto;/*agrega u scrool cuando sea necesario*/
+                        /*Deplazamiento hacia la derecha*/
+                        top:31%;
+                        right: 100%;
+                        transition: right 0.3s;
+                     }
+                     .nav-menu_visible{
+                        display:block;
+                        right:0;
+                        margin-right: 0;   
+                     }   
+                    
+                }
+/*______________________________________________________________*/
 
                 ul {
                     display: flex;
