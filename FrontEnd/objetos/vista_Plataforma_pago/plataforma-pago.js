@@ -4,7 +4,7 @@ const resumen_compra = document.querySelector(".resumen-compra");
 const btnContinuar = document.querySelector(".boton_centrado");
 
 async function searchOrder(idOrder) {
-    const url = "https://jsonplaceholder.typicode.com/users";
+    const url = "https://localhost:8080/api/order/allpending";
     try {
         const response = await fetch(`${url}/${idOrder}`);
         const json = await response.json();
@@ -19,7 +19,7 @@ presupuesto.mostrarPresupuesto();
 
 async function updatedOrder(idOrder) {
     try {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${idOrder}`, {
+        const response = await fetch(`http:localhost:8080/api/order/acepted/${idOrder}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 title: 'aceptado', // debería ser para estado
