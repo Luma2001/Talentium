@@ -5,11 +5,11 @@ export class Presupuesto {
         this.orden = `<h3>Resumen de Compra</h3>
                     <div class="avatarProfesional">
                         <img class="img_Profesional" src="img/NoAvatar.png" alt="Foto del Profesional">
-                        <h4>${dato.name}<br>5 stars</h4>
+                        <h4>${dato.professional.lastname}, ${dato.professional.name}<br>${dato.professional.rating} stars</h4>
                     </div>
-                    <p>Servicio: ${dato.company.name}</p>
+                    <p>Servicio: ${dato.professional.profession}</p>
                     <p>Visita: 30/03/24</p>
-                    <p>Precio: $10000,-</p>`;
+                    <p>Precio: ${dato.price}</p>`;
     }
 
     mostrarPresupuesto() {
